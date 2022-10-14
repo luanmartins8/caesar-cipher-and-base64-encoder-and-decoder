@@ -10,51 +10,51 @@
 </head>
 
 <body>
-    <div class="flex-container">
-        <h1>CODIFICADOR</h1>
-        <div id="form">
-            <form action="/action_page.php">
-                <select name="codes" id="codes">
-                    <option value="" disabled selected>Select a code type</option>
-                    <option value="caesarCipher">Caesar Cipher</option>
-                    <option value="base64">Base64</option>
-                </select>
-                <div class="textBox">
-                    <p><label for="user"></label></p>
-                    <textarea id="textArea" name="message" rows="4" cols="50"
-                        placeholder="Write your message"></textarea>
-                </div>
-                <div class="divIncrease">
-                    <label for="key">Shift / Key (max. 25):</label>
-                    <input type="number" id="key" value="1" max="26" />
-                </div>
-                <br>
-                <div class="typeRadio">
-                    <div>
-                        <input type="radio" name="cod" class="radio" id="code" />
-                        <label for="encode">Encode</label>
-                    </div>
-
-                    <div>
-                        <input type="radio" name="cod" class="radio" id="decode" />
-                        <label for="decode">Decode</label>
-                    </div>
-                </div>
-                <button id="codeButton">
-                    <p>Encode</p>
-                </button>
-                <div class="textBox">
-                    <textarea id="textArea" name="resultMessage" rows="4" cols="50" readonly
-                        placeholder="Encoded message"></textarea>
-                </div>
-            </form>
-        </div>
-    </div>
+    <body>
+        <main class="container">
+          <h1>Message Encoder</h1>
+          <form>
+            <label for="mensagem"></label>
+            <textarea id="mensagem" cols="50" rows="4" placeholder = "Insira sua mensagem"></textarea>
+      
+            <select name="codigo" id="codigo">
+              <option value="" disabled selected>Selecione o tipo de codificador</option>
+              <option value="cesar">Cifra de César</option>
+              <option value="base64">Base64</option>
+            </select>
+      
+            <div class="divChave">
+              <label for="chave">Incremento (máx. 25)</label>
+              <input type="number" id="chave" value="1" max="26" />
+            </div>
+      
+            <div class="radioCod">
+              <div class="divRadio">
+                <input type="radio" name="cod" class="radio" id="cod" />
+                <label for="codificar">Codificar</label>
+              </div>
+      
+              <div class="divRadio">
+                <input type="radio" name="cod" class="radio" id="decod" />
+                <label for="decodificar">Decodificar</label>
+              </div>
+            </div>
+            <button id="botaoResultado">
+                <p>Codificar</p>
+              </button>
+            <div>
+              <label for="resultado"></label>
+              <textarea name="resultado" id="resultado" cols="50" rows="4" readonly placeholder = "Mensagem codificada"></textarea>
+            </div>
+          </form>
+        </main>
     <br>
     </div>
     <div class="footer">
-        <div class="footerOpacity"></div>
-        <p>Footer</p>
+      <br>
+        <a href="URL" target="_blank" rel="noopener noreferrer"><img src="media/github-logo.png" width="50" height="50"></a> <!--<a href="https://www.flaticon.com/br/icones-gratis/github" title="github ícones">Github ícones criados por Freepik - Flaticon</a>-->
+        <a href="URL" target="_blank" rel="noopener noreferrer"><img src="media/linkedin-logo.png" width="50" height="50"></a> <!--<a href="https://www.flaticon.com/br/icones-gratis/linkedin" title="linkedin ícones">Linkedin ícones criados por Freepik - Flaticon</a>-->
+        <p>Feito por Luan Martins</p>
     </div>
     <script src="js/script.js"></script>
 </body>

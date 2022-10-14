@@ -1,53 +1,55 @@
 // Shows Shift / Key option if Caesar Cipher encoder is selected
 
-var divIncrease = document.querySelector(".divIncrease");
+var divChave = document.querySelector(".divChave");
 var selecaoCod = document.addEventListener("click", function () {
-  var codes = document.getElementById("codes").value;
-  if (codes == "caesarCipher") {
-    divIncrease.style.display = "block";
+  var codigo = document.getElementById("codigo").value;
+  if (codigo == "cesar") {
+    divChave.style.display = "block";
   } else {
-    divIncrease.style.display = "none";
+    divChave.style.display = "none";
   }
 });
 
-// Calls the encoder or decoder function based on the selected code
+// Switch 
 
 var radio = document.querySelectorAll(".radio");
-var btn = document.getElementById("codeButton");
-var msg = document.getElementById("message");
-var shiftKey = document.getElementById("key");
-var resultMessage = document.getElementById("resultMessage");
+var botao = document.getElementById("botaoResultado");
+var mensagem = document.getElementById("mensagem");
+var chave = document.getElementById("chave");
+var resultado = document.getElementById("resultado");
 
-btn.addEventListener("click", function (event) {
+botao.addEventListener("click", function (event) {
   event.preventDefault();
-  var codes = document.getElementById("codes").value;
-  if (codes == "caesarCipher" && radio[0].checked) {
-    var valorMsg = msg.value.split("");
-    var valorKey = parseInt(shiftKey.value);
-    resultMessage.value = caesaEncoder(valorMsg, valorKey);
-  } else if (codes == "caesarCipher" && radio[1].checked) {
-    var valorMsg = msg.value.split("");
-    var valorKey = parseInt(shiftKey.value);
-    resultMessage.value = caesaDecoder(valorMsg, valorKey);
-  } else if (codes == "base64" && radio[0].checked) {
-    var valorMsg = msg.value;
-    resultMessage.value = btoa(valorMsg);
+  var codigo = document.getElementById("codigo").value;
+  if (codigo == "cesar" && radio[0].checked) {
+    var valorMsg = mensagem.value.split("");
+    var valorChave = parseInt(chave.value);
+    resultado.value = codificarCesar(valorMsg, valorChave);
+  } else if (codigo == "cesar" && radio[1].checked) {
+    var valorMsg = mensagem.value.split("");
+    var valorChave = parseInt(chave.value);
+    resultado.value = decodificarCesar(valorMsg, valorChave);
+
+// Base64 encoder and decoder
+  } else if (codigo == "base64" && radio[0].checked) {
+    var valorMsg = mensagem.value;
+    resultado.value = btoa(valorMsg);
   } else {
-    var valorMsg = msg.value;
-    resultMessage.value = atob(valorMsg);
+    var valorMsg = mensagem.value;
+    resultado.value = atob(valorMsg);
   }
 });
 
-// Caesa Cipher encoder function
+// Caesar Cipher encoder
 
-function caesaEncoder(msg, shiftKey) {
+function codificarCesar(msg, chave) {
   return msg
     .map((str) => {
-      var entry = str.charCodeAt();
-      if (entry >= 65 && entry <= 90) {
-        return String.fromCharCode(((entry - 65 + shiftKey) % 26) + 65);
-      } else if (entry >= 97 && entry <= 122) {
-        return String.fromCharCode(((entry - 97 + shiftKey) % 26) + 97);
+      var entrada = str.charCodeAt();
+      if (entrada >= 65 && entrada <= 90) {
+        return String.fromCharCode(((entrada - 65 + chave) % 26) + 65);
+      } else if (entrada >= 97 && entrada <= 122) {
+        return String.fromCharCode(((entrada - 97 + chave) % 26) + 97);
       } else {
         return str;
       }
@@ -55,23 +57,23 @@ function caesaEncoder(msg, shiftKey) {
     .join("");
 }
 
-// Caesa Cipher decoder function
+// Caesar Cipher decoder
 
-function decodificarCesar(msg, shiftKey) {
+function decodificarCesar(msg, chave) {
   return msg
     .map((str) => {
-      var entry = str.charCodeAt();
-      if (entry >= 65 && entry <= 90) {
-        if (entry - 65 - shiftKey < 0) {
-          return String.fromCharCode(((entry - 65 - shiftKey + 26) % 26) + 65);
+      var entrada = str.charCodeAt();
+      if (entrada >= 65 && entrada <= 90) {
+        if (entrada - 65 - chave < 0) {
+          return String.fromCharCode(((entrada - 65 - chave + 26) % 26) + 65);
         } else {
-          return String.fromCharCode(((entry - 65 - shiftKey) % 26) + 65);
+          return String.fromCharCode(((entrada - 65 - chave) % 26) + 65);
         }
-      } else if (entry >= 97 && entry <= 122) {
-        if (entry - 97 - shiftKey < 0) {
-          return String.fromCharCode(((entry - 97 - shiftKey + 26) % 26) + 97);
+      } else if (entrada >= 97 && entrada <= 122) {
+        if (entrada - 97 - chave < 0) {
+          return String.fromCharCode(((entrada - 97 - chave + 26) % 26) + 97);
         } else {
-          return String.fromCharCode(((entry - 97 - shiftKey) % 26) + 97);
+          return String.fromCharCode(((entrada - 97 - chave) % 26) + 97);
         }
       } else {
         return str;
@@ -83,12 +85,14 @@ function decodificarCesar(msg, shiftKey) {
 // Switch button's text
 radio[0].addEventListener("click", function () {
   if (radio[0].checked) {
-    btn.innerText = 'Encode';
+    botao.style.display = 'block';
+    botao.innerText = 'Encode';
   }
 });
 
 radio[1].addEventListener("click", function () {
   if (radio[1].checked) {
-    btn.innerText = 'Decode';
+    botao.style.display = 'block';
+    botao.innerText = 'Decode';
   }
 });

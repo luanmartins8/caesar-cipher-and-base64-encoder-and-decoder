@@ -7,6 +7,8 @@ body {
     font-family: 'Roboto Mono', sans-serif;
     box-sizing: content-box;
     display: flex;
+    justify-items: center;
+    justify-content: center;
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 	background-size: 400% 400%;
 	-webkit-animation: gradient 15s ease infinite;
@@ -23,7 +25,7 @@ h1 {
     padding: 2%;
 }
 
-.flex-container {
+.container {
     display: flex;
     flex-direction: column;
     justify-items: center;
@@ -34,7 +36,18 @@ h1 {
     width: auto;
 }
 
-#form {
+#codigo {
+    margin: 10px;
+}
+
+.divChave {
+    display: none;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+form {
     display: flex;
     background-color: rgb(255, 255, 255, 0.3);
     flex-direction: column;
@@ -48,6 +61,10 @@ h1 {
     box-shadow: 8px 8px 8px 8px rgb(0 0 0 / 20%);
 }
 
+form :hover {
+    background-color: white;
+} 
+
 /*
 .textBox {}
 
@@ -56,20 +73,21 @@ h1 {
 .textArea {}
 */
 
-.typeRadio {
+.radioCod {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    margin: 10px;
 }
 
-#codeButton {
-    display: flex;
+#botaoResultado {
+    display: none;
     align-self: center;
     justify-content: center;
     align-items: center;
-    width: 90%;
-    margin: 10px 20px 10px 20px;
+    width: 100%;
+    margin: 20px;
 }
 
 .footer {
@@ -81,8 +99,13 @@ h1 {
     background-color: rgb(255, 255, 255, 0.3);
     color: white;
     text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
+.footer a {
+    margin: 10px;
+}
 
 @-webkit-keyframes gradient {
 	0% {
