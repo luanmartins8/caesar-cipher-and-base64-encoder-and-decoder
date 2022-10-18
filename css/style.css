@@ -9,10 +9,7 @@ body {
     display: flex;
     justify-items: center;
     justify-content: center;
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-	background-size: 400% 400%;
-	-webkit-animation: gradient 15s ease infinite;
-	        animation: gradient 15s ease infinite;
+    background-color: white;
 }
 
 
@@ -61,18 +58,6 @@ form {
     box-shadow: 8px 8px 8px 8px rgb(0 0 0 / 20%);
 }
 
-form :hover {
-    background-color: white;
-} 
-
-/*
-.textBox {}
-
-.codes {}
-
-.textArea {}
-*/
-
 .radioCod {
     display: flex;
     flex-direction: row;
@@ -95,9 +80,8 @@ form :hover {
     left: 0;
     bottom: 0;
     width: 100%;
-    border-top: 1px solid white;
-    background-color: rgb(255, 255, 255, 0.3);
-    color: white;
+    background-color: none;
+    color: black;
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -106,31 +90,3 @@ form :hover {
 .footer a {
     margin: 10px;
 }
-
-@-webkit-keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
-
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
-
-/* Background cr:
-Manuel Pinto
-https://manuelpinto.in */
